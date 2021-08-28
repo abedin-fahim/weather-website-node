@@ -9,6 +9,8 @@ const geocode = require('./utils/geocode.js')
 // to generate the application is to call the function, doesn't take any argument
 // we can configure our server by using various methods provided in the application
 const app = express()
+// To get heroku port
+const port = process.env.PORT || 3000
 
 // console.log(__dirname)
 // console.log(__filename)
@@ -181,8 +183,8 @@ const partialsPath = path.join(__dirname, '../template/partials')
 // registerPartials() take a path to the directory where partials lives
 hbs.registerPartials(partialsPath)
 // To start the server on the app which we will only ever use only one time
-app.listen(3000, () =>{
-    console.log('Server is up at port: 3000.')
+app.listen(port, () =>{
+    console.log(`Server is up at port: ${port}.`)
 })
 
 // Heroku is used to deploy node.js application to production i.e the heroku server
